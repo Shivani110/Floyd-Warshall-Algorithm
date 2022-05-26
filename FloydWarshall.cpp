@@ -49,11 +49,11 @@ void Dis_tance(int a[][x])
 int main()
 {
 
-	int V[x][x] = { { 0, 2, Inf, 8 },
-						{ Inf, 2, 0, Inf },
-						{ Inf, 1,  4, 5 },
-						{ Inf, 1, 0 , Inf } ,
-						{ Inf, Inf, 3, 0 }};
+	int V[x][x] = { { 0, 2, Inf, 1, 8 },
+						{ Inf, 2, 0, Inf, 9 },
+						{4, Inf, 1,  4, 5 },
+						{2, Inf, 1, 0 , Inf } ,
+						{5, Inf, Inf, 3, 0 }};
 	Floyd_Warshall(V);
 	return 0;
 }
