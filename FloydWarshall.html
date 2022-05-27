@@ -1,0 +1,66 @@
+<script>
+    var infinite = 999999;
+	class Shortestpath
+	{
+		constructor() 
+		{
+		this.x = 4;
+		}
+
+		Floyd_Warshall(FGraph) 
+		{
+		var a = Array.from(Array(this.x), () => new Array(this.x).fill(0));
+		var u, v, w;
+		for (u = 0; u < this.x; u++) 
+		{
+			for (v = 0; v < this.x; v++) 
+			{
+			   a[u][v] = FGraph[u][v];
+			}
+		}
+		for (w = 0; w < this.w; w++) 
+		{
+			for (u = 0; u < this.x; u++) 
+			{
+			for (v = 0; v < this.x; v++) 
+			{
+				if (a[u][w] + a[w][v] < a[u][v]) 
+				{
+				  a[u][v] = a[u][w] + a[w][v];
+				}
+			}
+		    }
+		}
+		this.Solution(a);
+	}
+    Solution(a) 
+	{
+	document.write("Following matrix shows the shortest " +
+			"distances between every pair of vertices<br>"
+		);
+		for (let u = 0; u < this.x; ++u) 
+		{
+			for (let v = 0; v < this.x; ++v) 
+			{
+			 if (a[u][v] == infinite) 
+			{
+				document.write("inf ");
+			} 
+			else 
+			{
+				document.write("  " + a[u][v] + " ");
+			}
+			}
+         document.write("<br>");
+		}
+	}
+}
+let FGraph = [[0, 3, infinite, -4],
+               [infinite, 0, infinite, 1],
+			   [infinite, 0, -5, infinite],
+			   [infinite, infinite, infinite, 0]
+			   ];
+
+let p = new Shortestpath();
+p.Floyd_Warshall(FGraph);
+</script>
